@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="TaxshilaMobile.Controls.ActivityProgressBar"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <yummy:PancakeView
+            BackgroundColor="{DynamicResource mainBackground}"
+            CornerRadius="20"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal">
+
+                <ActivityIndicator
+                    IsRunning="True"
+                    IsVisible="True"
+                    Color="{DynamicResource activityIndicatorColor}">
+                    <!--<ActivityIndicator.Margin>
+                    <OnPlatform iOS="20,20,0,20" Android="25,10,0,10" Default="25,10,0,10" x:TypeArguments="Thickness" />
+                </ActivityIndicator.Margin>-->
+                </ActivityIndicator>
+                <Label
+                    FontFamily="{StaticResource OpenSansBold}"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="Loading..."
+                    TextColor="{DynamicResource mainLabel}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center">
+                    <Label.Margin>
+                        <OnPlatform
+                            x:TypeArguments="Thickness"
+                            Android="0,15,25,15"
+                            iOS="0,20,20,20" />
+                    </Label.Margin>
+                </Label>
+            </StackLayout>
+        </yummy:PancakeView>
+
+    </ContentView.Content>
+</ContentView>

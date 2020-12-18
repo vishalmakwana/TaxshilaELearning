@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaxshilaMobile.Views.LoginProcess.RegisterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:renderers="clr-namespace:TaxshilaMobile.Controls"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                        <StackLayout Margin="5,10,5,0" Spacing="10">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="{StaticResource OpenSansExtraBold}"
+                                FontSize="{OnPlatform Android=30,
+                                                      iOS=30,
+                                                      UWP=45}"
+                                Text="Register"
+                                TextColor="{DynamicResource mainLabel}"
+                                VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+                        <Image
+                            Aspect="AspectFit"
+                            HorizontalOptions="Center"
+                            Style="{DynamicResource loginPageHeaderImage}"
+                            WidthRequest="200" />
+                    </StackLayout>
+                    <yummy:PancakeView
+                        Margin="0,20,0,0"
+                        Padding="10,50,10,30"
+                        CornerRadius="40,40,0,0"
+                        Style="{DynamicResource listOptionLayoutStyle}"
+                        VerticalOptions="FillAndExpand">
+                        <StackLayout Spacing="5">
+                            <StackLayout Spacing="6">
+                                <Label
+                                    Margin="20,0,0,0"
+                                    FontFamily="{StaticResource OpenSansRegular}"
+                                    FontSize="20"
+                                    Text="Name"
+                                    TextColor="{DynamicResource mainLabel}" />
+                                <yummy:PancakeView
+                                    Padding="10,0,0,0"
+                                    BackgroundColor="{DynamicResource background}"
+                                    BorderThickness="1"
+                                    CornerRadius="15"
+                                    Elevation="3"
+                                    HeightRequest="50"
+                                    Style="{DynamicResource listOptionLayoutStyle}">
+                                    <renderers:BorderlessEntry
+                                        ClearButtonVisibility="WhileEditing"
+                                        FontFamily="{StaticResource OpenSansRegular}"
+                                        FontSize="20"
+                                        Keyboard="Text"
+                                        Text="{Binding UserName.Value}"
+                                        TextColor="{DynamicResource mainLabel}">
+                                        <renderers:BorderlessEntry.Behaviors>
+                                            <prism:EventToCommandBehavior Command="{Binding ValidateUserNameCommand}" EventName="TextChanged" />
+                                        </renderers:BorderlessEntry.Behaviors>
+                                    </renderers:BorderlessEntry>
+                                </yummy:PancakeView>
+                                <Label
+                                    FontAttributes="Bold"
+                                    IsVisible="{Binding UserName.Valid}"
+                                    Style="{StaticResource ValidationErrorLabelStyle}"
+                                    Text="{Binding UserName.Errors, Converter={StaticResource ValidationErrorConverter}}"
+                                    TextColor="IndianRed" />
+                            </StackLayout>
+
+                            <StackLayout Spacing="6">
+                                <Label
+                                    Margin="20,0,0,0"
+                                    FontFamily="{StaticResource OpenSansRegular}"
+                                    FontSize="20"
+                                    Text="Email"
+                                    TextColor="{DynamicResource mainLabel}" />
+                                <yummy:PancakeView
+                                    Padding="10,0,0,0"
+                                    BackgroundColor="{DynamicResource background}"
+                                    BorderThickness="1"
+                                    CornerRadius="15"
+                                    Elevation="3"
+                                    HeightRequest="50"
+                                    Style="{DynamicResource listOptionLayoutStyle}">
+                                    <renderers:BorderlessEntry
+                                        ClearButtonVisibility="WhileEditing"
+                                        FontFamily="{StaticResource OpenSansRegular}"
+                                        FontSize="20"
+                                        Keyboard="Email"
+                                        Text="{Binding UserEmail.Value}"
+                                        TextColor="{DynamicResource mainLabel}">
+                                        <renderers:BorderlessEntry.Behaviors>
+                                            <prism:EventToCommandBehavior Command="{Binding ValidateUserEmailCommand}" EventName="TextChanged" />
+                                        </renderers:BorderlessEntry.Behaviors>
+                                    </renderers:BorderlessEntry>
+                                </yummy:PancakeView>
+                                <Label
+                                    FontAttributes="Bold"
+                                    IsVisible="{Binding UserEmail.Valid}"
+                                    Style="{StaticResource ValidationErrorLabelStyle}"
+                                    Text="{Binding UserEmail.Errors, Converter={StaticResource ValidationErrorConverter}}"
+                                    TextColor="IndianRed" />
+                            </StackLayout>
+
+
+
+
+                            <StackLayout Spacing="6">
+                                <Label
+                                    Margin="20,0,0,0"
+                                    FontFamily="{StaticResource OpenSansRegular}"
+                                    FontSize="20"
+                                    Text="Mobile Number"
+                                    TextColor="{DynamicResource mainLabel}" />
+                                <yummy:PancakeView
+                                    Padding="10,0,0,0"
+                                    BackgroundColor="{DynamicResource background}"
+                                    BorderThickness="1"
+                                    CornerRadius="15"
+                                    Elevation="3"
+                                    HeightRequest="50"
+                                    Style="{DynamicResource listOptionLayoutStyle}">
+                                    <renderers:BorderlessEntry
+                                        ClearButtonVisibility="WhileEditing"
+                                        FontFamily="{StaticResource OpenSansRegular}"
+                                        FontSize="20"
+                                        Keyboard="Telephone"
+                                        Text="{Binding Phonenumber.Value}"
+                                        TextColor="{DynamicResource mainLabel}">
+                                        <renderers:BorderlessEntry.Behaviors>
+                                            <prism:EventToCommandBehavior Command="{Binding ValidatePhoneNumberCommand}" EventName="TextChanged" />
+                                        </renderers:BorderlessEntry.Behaviors>
+                                    </renderers:BorderlessEntry>
+                                </yummy:PancakeView>
+                                <Label
+                                    FontAttributes="Bold"
+                                    IsVisible="{Binding Phonenumber.Valid}"
+                                    Style="{StaticResource ValidationErrorLabelStyle}"
+                                    Text="{Binding Phonenumber.Errors, Converter={StaticResource ValidationErrorConverter}}"
+                                    TextColor="IndianRed" />
+                            </StackLayout>
+
+
+                            <StackLayout Spacing="6">
+                                <Label
+                                    Margin="20,0,0,0"
+                                    FontFamily="{StaticResource OpenSansRegular}"
+                                    FontSize="20"
+                                    Text="Password"
+                                    TextColor="{DynamicResource mainLabel}" />
+                                <yummy:PancakeView
+                                    Padding="10,0,0,0"
+                                    BackgroundColor="{DynamicResource background}"
+                                    BorderThickness="1"
+                                    CornerRadius="15"
+                                    Elevation="3"
+                                    HeightRequest="50"
+                                    Style="{DynamicResource listOptionLayoutStyle}">
+                                    <renderers:BorderlessEntry
+                                        ClearButtonVisibility="WhileEditing"
+                                        FontFamily="{StaticResource OpenSansRegular}"
+                                        FontSize="25"
+                                        IsPassword="True"
+                                        Keyboard="Text"
+                                        Text="{Binding Password.Value}"
+                                        TextColor="{DynamicResource mainLabel}">
+                                        <renderers:BorderlessEntry.Behaviors>
+                                            <prism:EventToCommandBehavior Command="{Binding ValidatePasswordCommand}" EventName="TextChanged" />
+                                        </renderers:BorderlessEntry.Behaviors>
+                                    </renderers:BorderlessEntry>
+                                </yummy:PancakeView>
+                                <Label
+                                    FontAttributes="Bold"
+                                    IsVisible="{Binding Password.Valid}"
+                                    Style="{StaticResource ValidationErrorLabelStyle}"
+                                    Text="{Binding Password.Errors, Converter={StaticResource ValidationErrorConverter}}"
+                                    TextColor="IndianRed" />
+                            </StackLayout>
+
+
+                            <StackLayout Spacing="6">
+                                <Label
+                                    Margin="20,0,0,0"
+                                    FontFamily="{StaticResource OpenSansRegular}"
+                                    FontSize="20"
+                                    Text="Confirm Password"
+                                    TextColor="{DynamicResource mainLabel}" />
+                                <yummy:PancakeView
+                                    Padding="10,0,0,0"
+                                    BackgroundColor="{DynamicResource background}"
+                                    BorderThickness="1"
+                                    CornerRadius="15"
+                                    Elevation="3"
+                                    HeightRequest="50"
+                                    Style="{DynamicResource listOptionLayoutStyle}">
+                                    <renderers:BorderlessEntry
+                                        ClearButtonVisibility="WhileEditing"
+                                        FontFamily="{StaticResource OpenSansRegular}"
+                                        FontSize="25"
+                                        IsPassword="True"
+                                        Keyboard="Text"
+                                        Text="{Binding ConfirmPassword.Value}"
+                                        TextColor="{DynamicResource mainLabel}">
+                                        <renderers:BorderlessEntry.Behaviors>
+                                            <prism:EventToCommandBehavior Command="{Binding ValidateConfirmPasswordCommand}" EventName="TextChanged" />
+                                        </renderers:BorderlessEntry.Behaviors>
+                                    </renderers:BorderlessEntry>
+                                </yummy:PancakeView>
+                                <Label
+                                    FontAttributes="Bold"
+                                    IsVisible="{Binding ConfirmPassword.Valid}"
+                                    Style="{StaticResource ValidationErrorLabelStyle}"
+                                    Text="{Binding ConfirmPassword.Errors, Converter={StaticResource ValidationErrorConverter}}"
+                                    TextColor="IndianRed" />
+                            </StackLayout>
+                            <yummy:PancakeView
+                                BorderThickness="1"
+                                CornerRadius="25"
+                                HeightRequest="50"
+                                HorizontalOptions="CenterAndExpand"
+                                Style="{DynamicResource listOptionLayoutStyle}"
+                                WidthRequest="150">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="{StaticResource OpenSansExtraBold}"
+                                    FontSize="20"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Text="Register"
+                                    TextColor="{DynamicResource mainLabel}"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding RegisterCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                            </yummy:PancakeView>
+                            <Label
+                                FontAttributes="None"
+                                FontSize="20"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="Or"
+                                TextColor="{DynamicResource mainLabel}" />
+                            <Label
+                                FontAttributes="None"
+                                FontSize="18"
+                                HorizontalOptions="CenterAndExpand"
+                                TextColor="{DynamicResource secondaryLabel}"
+                                VerticalOptions="CenterAndExpand">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            FontFamily="{StaticResource OpenSansRegular}"
+                                            FontSize="Large"
+                                            Text="Have an account ? "
+                                            TextColor="{DynamicResource mainLabel}" />
+                                        <Span
+                                            FontFamily="{StaticResource OpenSansExtraBold}"
+                                            FontSize="Large"
+                                            Text="Login"
+                                            TextColor="{DynamicResource mainLabel}"
+                                            TextDecorations="Underline">
+                                            <Span.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding LoginPageNavigationCommand}" />
+                                            </Span.GestureRecognizers>
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </yummy:PancakeView>
+                </StackLayout>
+            </ScrollView>
+            <renderers:ActivityProgressBar
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                IsVisible="{Binding IsBusy}" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

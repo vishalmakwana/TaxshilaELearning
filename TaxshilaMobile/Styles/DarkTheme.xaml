@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="TaxshilaMobile.Styles.DarkTheme"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="background">#222</Color>
+    <Color x:Key="appPrimaryColor">#FFF</Color>
+    <Color x:Key="activityIndicatorColor">#FFF</Color>
+    <Color x:Key="mainBackground">#222</Color>
+    <Color x:Key="barBackgroundColor">#000</Color>
+    <Color x:Key="barTextColor">#FFF</Color>
+    <Color x:Key="mainLabel">#FFF</Color>
+    <Color x:Key="altmainLabel">#222</Color>
+    <Color x:Key="fontColor">#FFF</Color>
+    <Color x:Key="secondaryLabel">#9F9F9F</Color>
+    <Color x:Key="entryBackground">#333</Color>
+    <Color x:Key="radioBackground">#999</Color>
+    <Color x:Key="borderColor">#333</Color>
+    <Color x:Key="iconColor">#FFF</Color>
+    <Color x:Key="btnBackgroundColor">#222</Color>
+    <Color x:Key="pancakeBackgroundColor">#FFF</Color>
+    <Color x:Key="checkboxcolor">#FFF</Color>
+
+    <Style x:Key="loginPageHeaderImage" TargetType="Image">
+        <Setter Property="Source" Value="LoginbgImageLight.png" />
+    </Style>
+    <Style x:Key="mainPageHeaderImage" TargetType="Image">
+        <Setter Property="Source" Value="DashboardImageLight.png" />
+    </Style>
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Styles/Global.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

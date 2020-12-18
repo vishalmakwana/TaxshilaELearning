@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaxshilaMobile.Views.IsReachableOrNotPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControl="clr-namespace:TaxshilaMobile.Controls"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Server Down"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentView x:Name="contentView">
+        <AbsoluteLayout>
+            <customControl:EmptyStateView EmptyStateSubtitle="We can't connect to the server, please contact your system admin or try again later" EmptyStateTitle="Not reachable" />
+        </AbsoluteLayout>
+    </ContentView>
+</ContentPage>

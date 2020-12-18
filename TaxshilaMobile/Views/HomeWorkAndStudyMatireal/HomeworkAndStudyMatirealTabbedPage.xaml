@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="TaxshilaMobile.Views.HomeWorkAndStudyMatireal.HomeworkAndStudyMatirealTabbedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:pages="clr-namespace:TaxshilaMobile.Views.HomeWorkAndStudyMatireal"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Homework"
+    android:Button.UseDefaultPadding="False"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <pages:HomeWorkPage BackgroundColor="Transparent" IconImageSource="Homeworkandstudy" />
+    <pages:StudyMatirealPage BackgroundColor="Transparent" IconImageSource="studymatireal" />
+</TabbedPage>

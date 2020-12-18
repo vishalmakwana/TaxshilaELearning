@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaxshilaMobile.Views.NoInterNetConnectionPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControl="clr-namespace:TaxshilaMobile.Controls"
+    xmlns:prism="http://prismlibrary.com"
+    Title="No Internet Connection"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentView x:Name="contentView">
+        <AbsoluteLayout>
+            <customControl:EmptyStateView EmptyStateSubtitle="Currently, we do not have access to the INTERNET. Please connect to the Internet and try again or switch to off-line mode to continue." EmptyStateTitle="Please Go online to use this functionality" />
+        </AbsoluteLayout>
+    </ContentView>
+</ContentPage>

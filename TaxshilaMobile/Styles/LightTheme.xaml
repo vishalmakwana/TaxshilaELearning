@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="TaxshilaMobile.Styles.LightTheme"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="background">#E4E4F1</Color>
+    <Color x:Key="primaryColor">#1976D2</Color>
+    <Color x:Key="appPrimaryColor">#080041</Color>
+    <Color x:Key="appGardianPrimaryColor">#ADA7D6</Color>
+    <Color x:Key="appGardianSecondaryColor">#FB5943</Color>
+    <Color x:Key="appSecondaryColor">#db3620</Color>
+    <Color x:Key="mainBackground">#E4E4F1</Color>
+    <Color x:Key="mainLabel">#080041</Color>
+    <Color x:Key="activityIndicatorColor">#080041</Color>
+    <Color x:Key="barBackgroundColor">#E4E4F1</Color>
+    <Color x:Key="barTextColor">#080041</Color>
+    <Color x:Key="fontColor">#080041</Color>
+    <Color x:Key="altmainLabel">#E4E4F1</Color>
+    <Color x:Key="secondaryLabel">#666</Color>
+    <Color x:Key="entryBackground">#EEE</Color>
+    <Color x:Key="radioBackground">#999</Color>
+    <Color x:Key="borderColor">#DDD</Color>
+    <Color x:Key="iconColor">#080041</Color>
+    <Color x:Key="btnBackgroundColor">#E4E4F1</Color>
+    <Color x:Key="pancakeBackgroundColor">#080041</Color>
+    <Color x:Key="checkboxcolor">#222</Color>
+    <!--<Style x:Key="loginPageHeaderImage" TargetType="Image">
+        <Setter Property="Source" Value="LoginbgImageDark.png" />
+    </Style>
+    <Style x:Key="mainPageHeaderImage" TargetType="Image">
+        <Setter Property="Source" Value="DashboardImageDark.png" />
+    </Style>-->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Styles/Global.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

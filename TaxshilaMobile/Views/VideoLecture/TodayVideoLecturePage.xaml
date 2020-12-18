@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaxshilaMobile.Views.VideoLecture.TodayVideoLecturePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControl="clr-namespace:TaxshilaMobile.Controls"
+    xmlns:fontawesome="clr-namespace:FontAwesome"
+    xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:renderers="clr-namespace:TaxshilaMobile.Controls"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="Today Lecture"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{DynamicResource mainBackground}">
+    <ContentView x:Name="contentView">
+        <AbsoluteLayout>
+
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                IsClippedToBounds="True">
+                <customControl:StemmonsListView
+                    BackgroundColor="White"
+                    IsSearchBarVisisble="False"
+                    ItemsSource="{Binding GroupedSubjectViseVideoData}"
+                    VerticalOptions="FillAndExpand">
+                    <customControl:StemmonsListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout
+                                    Padding="8,4,8,0"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <Frame
+                                        x:Name="VideoLectures"
+                                        Margin="4"
+                                        Padding="10"
+                                        BorderColor="LightGray"
+                                        CornerRadius="10"
+                                        HasShadow="False"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand">
+                                        <Grid ColumnSpacing="0" RowSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="90*" />
+                                                <ColumnDefinition Width="10*" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout
+                                                Grid.Column="0"
+                                                Orientation="Vertical"
+                                                Spacing="0">
+
+                                                <Grid ColumnSpacing="10">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="50*" />
+                                                        <ColumnDefinition Width="50*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout
+                                                        Grid.Column="0"
+                                                        AutomationId="TitleLayout"
+                                                        HorizontalOptions="Start"
+                                                        Spacing="0" />
+                                                    <StackLayout
+                                                        Grid.Column="0"
+                                                        Grid.ColumnSpan="2"
+                                                        AutomationId="TitleLayout"
+                                                        HorizontalOptions="Start"
+                                                        Spacing="0">
+                                                        <Label
+                                                            FontAttributes="Bold"
+                                                            FontFamily="{StaticResource OpenSansBold}"
+                                                            FontSize="Small"
+                                                            LineBreakMode="WordWrap"
+                                                            TextColor="{DynamicResource fontColor}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Date : " />
+                                                                    <Span Text="(" />
+                                                                    <Span Text="{Binding PublishDate, StringFormat='{0:dd-MM-yyyy}'}" />
+                                                                    <Span Text=")" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
+                                                </Grid>
+
+                                                <Grid ColumnSpacing="10">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="50*" />
+                                                        <ColumnDefinition Width="50*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout
+                                                        Grid.Column="0"
+                                                        AutomationId="TitleLayout"
+                                                        HorizontalOptions="Start"
+                                                        Spacing="0" />
+                                                    <StackLayout
+                                                        Grid.Column="0"
+                                                        Grid.ColumnSpan="2"
+                                                        AutomationId="TitleLayout"
+                                                        HorizontalOptions="Start"
+                                                        Spacing="0">
+                                                        <Label
+                                                            FontAttributes="Bold"
+                                                            FontFamily="{StaticResource OpenSansBold}"
+                                                            FontSize="Small"
+                                                            LineBreakMode="WordWrap"
+                                                            TextColor="{DynamicResource fontColor}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Subject : " />
+
+                                                                    <Span Text="{Binding SubjectName}" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
+                                                    <StackLayout
+                                                        Grid.Column="1"
+                                                        AutomationId="TitleLayout"
+                                                        HorizontalOptions="Start"
+                                                        Spacing="0">
+                                                        <Label
+                                                            FontAttributes="Bold"
+                                                            FontFamily="{StaticResource OpenSansBold}"
+                                                            FontSize="Small"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="{Binding StandardName}"
+                                                            TextColor="{DynamicResource fontColor}" />
+                                                    </StackLayout>
+                                                </Grid>
+                                                <Grid ColumnSpacing="10">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="50*" />
+                                                        <ColumnDefinition Width="50*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout
+                                                        Grid.Column="0"
+                                                        Grid.ColumnSpan="2"
+                                                        AutomationId="TitleLayout"
+                                                        HorizontalOptions="Start"
+                                                        Spacing="0">
+                                                        <Label
+                                                            FontAttributes="Bold"
+                                                            FontFamily="{StaticResource OpenSansBold}"
+                                                            FontSize="Small"
+                                                            LineBreakMode="WordWrap"
+                                                            TextColor="{DynamicResource fontColor}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="{Binding VideoLectureName}" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
+                                                </Grid>
+
+                                                <Grid ColumnSpacing="10">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="50*" />
+                                                        <ColumnDefinition Width="50*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout
+                                                        Grid.Column="0"
+                                                        AutomationId="TitleLayout"
+                                                        HorizontalOptions="Start"
+                                                        Spacing="0">
+                                                        <Label
+                                                            FontAttributes="Bold"
+                                                            FontFamily="{StaticResource OpenSansBold}"
+                                                            FontSize="Small"
+                                                            LineBreakMode="TailTruncation"
+                                                            TextColor="{DynamicResource fontColor}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Start time: " />
+                                                                    <Span Text=" " />
+                                                                    <Span Text="{Binding StartTime, StringFormat='{0:HH:mm}'}" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
+                                                    <StackLayout
+                                                        Grid.Column="1"
+                                                        AutomationId="TitleLayout"
+                                                        HorizontalOptions="Start"
+                                                        Spacing="0">
+                                                        <Label
+                                                            FontAttributes="Bold"
+                                                            FontFamily="{StaticResource OpenSansBold}"
+                                                            FontSize="Small"
+                                                            LineBreakMode="TailTruncation"
+                                                            TextColor="{DynamicResource fontColor}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="End time: " />
+                                                                    <Span Text=" " />
+                                                                    <Span Text="{Binding EndTime, StringFormat='{0:HH:mm}'}" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
+                                                </Grid>
+
+                                                <Grid ColumnSpacing="10">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="50*" />
+                                                        <ColumnDefinition Width="50*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout
+                                                        Grid.Column="0"
+                                                        Grid.ColumnSpan="2"
+                                                        AutomationId="TitleLayout"
+                                                        HorizontalOptions="Start"
+                                                        Spacing="0">
+                                                        <Label
+                                                            FontAttributes="Bold"
+                                                            FontFamily="{StaticResource OpenSansBold}"
+                                                            FontSize="Small"
+                                                            LineBreakMode="TailTruncation"
+                                                            TextColor="{DynamicResource fontColor}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Video Link: " />
+                                                                    <Span Text=" " />
+                                                                    <Span
+                                                                        Text="Link 1"
+                                                                        TextColor="Blue"
+                                                                        TextDecorations="Underline">
+                                                                        <Span.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.VideoLinkTapCommand, Source={x:Reference contentView}}" CommandParameter="{Binding .}" />
+                                                                        </Span.GestureRecognizers>
+                                                                    </Span>
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </customControl:StemmonsListView.ItemTemplate>
+                    <customControl:StemmonsListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <StackLayout
+                                    Padding="16,6"
+                                    AutomationId="GroupHeaderItem"
+                                    BackgroundColor="WhiteSmoke"
+                                    Orientation="Horizontal">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference this}, Path=BindingContext.HeaderTappedCommand}" CommandParameter="{Binding .}" />
+                                    </StackLayout.GestureRecognizers>
+
+                                    <Label
+                                        AutomationId="GroupStateIcon"
+                                        FontFamily="{StaticResource FontAwesome}"
+                                        FontSize="40"
+                                        Text="{Binding StateIcon}"
+                                        TextColor="{DynamicResource fontColor}" />
+                                    <Label
+                                        AutomationId="GroupTitle"
+                                        FontSize="14"
+                                        Text="{Binding Title}"
+                                        TextColor="{DynamicResource fontColor}"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        AutomationId="GroupCount"
+                                        FontSize="10"
+                                        HorizontalOptions="EndAndExpand"
+                                        Text="{Binding ItemCount}"
+                                        TextColor="{DynamicResource fontColor}"
+                                        VerticalOptions="Center" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </customControl:StemmonsListView.GroupHeaderTemplate>
+                </customControl:StemmonsListView>
+            </StackLayout>
+
+            <renderers:EmptyStateView IsVisible="{Binding IsEmpty}" />
+            <renderers:ActivityProgressBar
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                IsVisible="{Binding IsBusy}" />
+        </AbsoluteLayout>
+    </ContentView>
+</ContentPage>

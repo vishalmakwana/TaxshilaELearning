@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaxshilaMobile.Views.TeacherDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:MatirealIcon="clr-namespace:TaxshilaMobile.Utils"
+    xmlns:controls="clr-namespace:TaxshilaMobile.Controls"
+    xmlns:ffimageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fontawesome="clr-namespace:FontAwesome"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="Teacher Details"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Content>
+        <ContentView x:Name="contentView">
+            <AbsoluteLayout>
+
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+
+                    <CollectionView ItemsSource="{Binding ItemCollection}" VerticalOptions="FillAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="16,8">
+
+                                    <yummy:PancakeView
+                                        BorderColor="LightGray"
+                                        BorderThickness="1"
+                                        CornerRadius="10"
+                                        HasShadow="False"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand">
+
+                                        <StackLayout
+                                            Padding="12,12,0,12"
+                                            Orientation="Horizontal"
+                                            Spacing="10">
+                                            <Grid HorizontalOptions="Start" VerticalOptions="Center">
+                                                <!--<Label
+                                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                                    FontSize="55"
+                                                    HorizontalOptions="Center"
+                                                    Text="ue853"
+                                                    TextColor="Gray"
+                                                    VerticalOptions="Center" />-->
+
+                                                <!--<Image
+                                                    Aspect="AspectFit"
+                                                    BackgroundColor="Transparent"
+                                                    HeightRequest="50"
+                                                    HorizontalOptions="Center"
+                                                    Source="{Binding ImageData}"
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="50" />-->
+                                                <controls:InitialsView
+                                                    Name="{Binding Name, Mode=TwoWay}"
+                                                    DefaultBackgroundColor="Transparent"
+                                                    HeightRequest="50"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="50" />
+                                            </Grid>
+
+                                            <Label
+                                                FontSize="20"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding Name}"
+                                                VerticalOptions="Center" />
+
+                                            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+
+                                                <Label
+                                                    FontFamily="{StaticResource FontAwesome}"
+                                                    FontSize="Small"
+                                                    HorizontalOptions="End"
+                                                    Text="{x:Static fontawesome:IconFonts.Phone}"
+                                                    TextColor="{DynamicResource primaryColor}"
+                                                    VerticalOptions="Center">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.CollectionViewTapCommand, Source={x:Reference contentView}}" CommandParameter="{Binding .}" />
+                                                    </Label.GestureRecognizers>
+                                                </Label>
+                                            </Grid>
+
+                                            <!--<Label
+                                                FontFamily="{StaticResource FontAwesome}"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Text="{x:Static fontawesome:IconFonts.Phone}"
+                                                TextColor="{DynamicResource primaryColor}"
+                                                VerticalOptions="Center" />-->
+                                        </StackLayout>
+                                    </yummy:PancakeView>
+                                </Grid>
+                                <!--<yummy:PancakeView
+                                        Margin="5"
+                                        Padding="5"
+                                        BackgroundColor="White"
+                                        BorderThickness="1"
+                                        CornerRadius="10"
+                                        Elevation="5"
+                                        HasShadow="True"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand">
+                                        <StackLayout
+                                            Padding="8,8,0,8"
+                                            Orientation="Horizontal"
+                                            Spacing="10">
+                                            <Grid HorizontalOptions="Start" VerticalOptions="Center">
+                                                <controls:InitialsView
+                                                    Name="{Binding Name, Mode=TwoWay}"
+                                                    DefaultBackgroundColor="Transparent"
+                                                    HeightRequest="80"
+                                                    WidthRequest="80" />
+                                            </Grid>
+                                            <Label
+                                                FontFamily="{StaticResource OpenSansBold}"
+                                                FontSize="25"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding Name}"
+                                                TextColor="{DynamicResource primaryColor}"
+                                                VerticalOptions="Center" />
+                                            <Label
+                                                FontFamily="{StaticResource FontAwesome}"
+                                                FontSize="Subtitle"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Text="{x:Static fontawesome:IconFonts.Phone}"
+                                                TextColor="{DynamicResource primaryColor}"
+                                                VerticalOptions="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.CollectionViewTapCommand, Source={x:Reference contentView}}" CommandParameter="{Binding .}" />
+                                                </Label.GestureRecognizers>
+                                            </Label>
+
+                                        </StackLayout>
+
+                                    </yummy:PancakeView>-->
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <!--<CollectionView.Behaviors>
+                        <prism:EventToCommandBehavior Command="{Binding NavigateCommand}" EventName="SelectionChanged" />
+                    </CollectionView.Behaviors>-->
+                    </CollectionView>
+                </StackLayout>
+                <controls:EmptyStateView IsVisible="{Binding IsEmpty}" />
+                <controls:ActivityProgressBar
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    IsVisible="{Binding IsBusy}" />
+            </AbsoluteLayout>
+        </ContentView>
+
+    </ContentPage.Content>
+</ContentPage>

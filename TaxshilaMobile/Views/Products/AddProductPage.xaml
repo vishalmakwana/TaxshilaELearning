@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaxshilaMobile.Views.Products.AddProductPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:TaxshilaMobile.Controls"
+    xmlns:fontawesome="clr-namespace:FontAwesome"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{Binding mainBackground}">
+    <NavigationPage.TitleView>
+        <StackLayout BackgroundColor="{DynamicResource mainBackground}" Orientation="Horizontal">
+            <Image Aspect="AspectFit" Source="jctoolicon.png" />
+            <Label
+                FontFamily="{StaticResource OpenSansExtraBold}"
+                FontSize="Body"
+                HorizontalOptions="CenterAndExpand"
+                Text="Add shade"
+                TextColor="{DynamicResource mainLabel}" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding SaveProductCommand}" Text="Save">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="{StaticResource FontAwesome}"
+                    Glyph="{Static fontawesome:IconFonts.Save}"
+                    Size="24"
+                    Color="{DynamicResource iconColor}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Padding="10" Spacing="10">
+
+                    <StackLayout>
+                        <Label
+                            Margin="5,0,0,0"
+                            FontFamily="{StaticResource OpenSansRegular}"
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Text="Item Name"
+                            TextColor="{DynamicResource mainLabel}" />
+                        <yummy:PancakeView
+                            Padding="10,0,0,0"
+                            BackgroundColor="{DynamicResource background}"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Elevation="3"
+                            HeightRequest="50"
+                            Style="{DynamicResource listOptionLayoutStyle}">
+
+                            <controls:BorderlessEntry
+                                ClearButtonVisibility="WhileEditing"
+                                FontFamily="{StaticResource OpenSansRegular}"
+                                FontSize="20"
+                                Text="{Binding ValidateName.Value}"
+                                TextColor="{DynamicResource mainLabel}">
+                                <controls:BorderlessEntry.Behaviors>
+                                    <prism:EventToCommandBehavior Command="{Binding ValidateNameCommand}" EventName="TextChanged" />
+                                </controls:BorderlessEntry.Behaviors>
+                            </controls:BorderlessEntry>
+
+                        </yummy:PancakeView>
+                        <Label
+                            FontAttributes="Bold"
+                            IsVisible="{Binding ValidateName.Valid}"
+                            Style="{StaticResource ValidationErrorLabelStyle}"
+                            Text="{Binding ValidateName.Errors, Converter={StaticResource ValidationErrorConverter}}"
+                            TextColor="IndianRed" />
+                    </StackLayout>
+                    <StackLayout Spacing="10">
+                        <Label
+                            Margin="5,0,0,0"
+                            FontFamily="{StaticResource OpenSansRegular}"
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Text="Item code"
+                            TextColor="{DynamicResource mainLabel}" />
+                        <yummy:PancakeView
+                            Padding="10,0,0,0"
+                            BackgroundColor="{DynamicResource background}"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Elevation="3"
+                            HeightRequest="50"
+                            Style="{DynamicResource listOptionLayoutStyle}">
+
+                            <controls:BorderlessEntry
+                                ClearButtonVisibility="WhileEditing"
+                                FontFamily="{StaticResource OpenSansRegular}"
+                                FontSize="20"
+                                Keyboard="Numeric"
+                                Text="{Binding ItemCode}"
+                                TextColor="{DynamicResource mainLabel}" />
+
+                        </yummy:PancakeView>
+
+                    </StackLayout>
+                    <StackLayout Spacing="10">
+                        <Label
+                            Margin="5,0,0,0"
+                            FontFamily="{StaticResource OpenSansRegular}"
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Text="Product"
+                            TextColor="{DynamicResource mainLabel}" />
+                        <yummy:PancakeView
+                            Padding="10,0,0,0"
+                            BackgroundColor="{DynamicResource background}"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Elevation="3"
+                            HeightRequest="50"
+                            Style="{DynamicResource listOptionLayoutStyle}">
+                            <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Vertical"
+                                VerticalOptions="Center">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80*" />
+                                        <ColumnDefinition Width="20*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Grid.Column="0"
+                                        FontFamily="{StaticResource OpenSansRegular}"
+                                        FontSize="20"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding ProductCategory.Text}"
+                                        TextColor="{DynamicResource mainLabel}" />
+                                    <Image
+                                        Grid.Column="1"
+                                        Aspect="AspectFit"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="Center">
+                                        <Image.Source>
+                                            <FontImageSource
+                                                FontFamily="{StaticResource FontAwesome}"
+                                                Glyph="{Static fontawesome:IconFonts.CaretDown}"
+                                                Color="{DynamicResource iconColor}" />
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenCategoryPickerCommand}" />
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <Label
+                            FontAttributes="Bold"
+                            IsVisible="{Binding ValidateProductCategory.Valid}"
+                            Style="{StaticResource ValidationErrorLabelStyle}"
+                            Text="{Binding ValidateProductCategory.Errors, Converter={StaticResource ValidationErrorConverter}}"
+                            TextColor="IndianRed" />
+                    </StackLayout>
+
+                    <StackLayout Spacing="10">
+                        <Label
+                            Margin="5,0,0,0"
+                            FontFamily="{StaticResource OpenSansRegular}"
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Text="Measurement Type"
+                            TextColor="{DynamicResource mainLabel}" />
+                        <yummy:PancakeView
+                            Padding="10,0,0,0"
+                            BackgroundColor="{DynamicResource background}"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Elevation="3"
+                            HeightRequest="50"
+                            Style="{DynamicResource listOptionLayoutStyle}">
+                            <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Vertical"
+                                VerticalOptions="Center">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80*" />
+                                        <ColumnDefinition Width="20*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Grid.Column="0"
+                                        FontFamily="{StaticResource OpenSansRegular}"
+                                        FontSize="20"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding ProductMeasurementTypePicker.Text}"
+                                        TextColor="{DynamicResource mainLabel}" />
+                                    <Image
+                                        Grid.Column="1"
+                                        Aspect="AspectFit"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="Center">
+                                        <Image.Source>
+                                            <FontImageSource
+                                                FontFamily="{StaticResource FontAwesome}"
+                                                Glyph="{Static fontawesome:IconFonts.CaretDown}"
+                                                Color="{DynamicResource iconColor}" />
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenMeasurementTypePickerCommand}" />
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <Label
+                            FontAttributes="Bold"
+                            IsVisible="{Binding ValidateProductMeasurementType.Valid}"
+                            Style="{StaticResource ValidationErrorLabelStyle}"
+                            Text="{Binding ValidateProductMeasurementType.Errors, Converter={StaticResource ValidationErrorConverter}}"
+                            TextColor="IndianRed" />
+                    </StackLayout>
+
+
+                    <!--<StackLayout Spacing="10">
+                        <Label
+                            Margin="5,0,0,0"
+                            FontFamily="{StaticResource OpenSansRegular}"
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Text="Cost Price"
+                            TextColor="{DynamicResource mainLabel}" />
+                        <yummy:PancakeView
+                            Padding="10,0,0,0"
+                            BackgroundColor="{DynamicResource background}"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Elevation="3"
+                            HeightRequest="50"
+                            Style="{DynamicResource listOptionLayoutStyle}">
+
+                            <controls:BorderlessEntry
+                                ClearButtonVisibility="WhileEditing"
+                                FontFamily="{StaticResource OpenSansRegular}"
+                                FontSize="20"
+                                Keyboard="Numeric"
+                                Text="{Binding CostPrice}"
+                                TextColor="{DynamicResource mainLabel}" />
+                        </yummy:PancakeView>
+                    </StackLayout>-->
+                    <!--<StackLayout Spacing="10">
+                        <Label
+                            Margin="5,0,0,0"
+                            FontFamily="{StaticResource OpenSansRegular}"
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Text="Sale Price"
+                            TextColor="{DynamicResource mainLabel}" />
+                        <yummy:PancakeView
+                            Padding="10,0,0,0"
+                            BackgroundColor="{DynamicResource background}"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Elevation="3"
+                            HeightRequest="50"
+                            Style="{DynamicResource listOptionLayoutStyle}">
+
+                            <controls:BorderlessEntry
+                                ClearButtonVisibility="WhileEditing"
+                                FontFamily="{StaticResource OpenSansRegular}"
+                                FontSize="20"
+                                Keyboard="Numeric"
+                                Text="{Binding SalePrice}"
+                                TextColor="{DynamicResource mainLabel}" />
+                        </yummy:PancakeView>
+                    </StackLayout>-->
+                    <!--<StackLayout Spacing="10">
+                        <Label
+                            Margin="5,0,0,0"
+                            FontFamily="{StaticResource OpenSansRegular}"
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Text="Description"
+                            TextColor="{DynamicResource mainLabel}" />
+                        <yummy:PancakeView
+                            Padding="10,0,0,0"
+                            BackgroundColor="{DynamicResource background}"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Elevation="3"
+                            HeightRequest="120"
+                            Style="{DynamicResource listOptionLayoutStyle}">
+                            <Editor
+                                AutoSize="TextChanges"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="Fill"
+                                IsSpellCheckEnabled="True"
+                                Keyboard="Text"
+                                PlaceholderColor="Black"
+                                Text="{Binding Description, Mode=TwoWay}"
+                                TextColor="Black"
+                                VerticalOptions="FillAndExpand"
+                                Visual="Default" />
+                        </yummy:PancakeView>
+                    </StackLayout>-->
+
+                </StackLayout>
+            </ScrollView>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
+</ContentPage>

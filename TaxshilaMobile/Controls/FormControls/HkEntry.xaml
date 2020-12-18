@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<StackLayout
+    x:Class="TaxshilaMobile.Controls.FormControls.HkEntry"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="http://prismlibrary.com"
+    xmlns:borderLessEntry="clr-namespace:TaxshilaMobile.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Name="this"
+    mc:Ignorable="d">
+    <Label
+        BindingContext="{x:Reference this}"
+        FontFamily="{StaticResource OpenSansBold}"
+        TextColor="{DynamicResource mainLabel}">
+        <Label.FormattedText>
+            <FormattedString>
+                <Span Text="{Binding Title}" />
+                <Span ForegroundColor="{Binding RequiredColor}" Text=" *" />
+            </FormattedString>
+        </Label.FormattedText>
+    </Label>
+    <yummy:PancakeView
+        Grid.Row="2"
+        Grid.Column="0"
+        Grid.ColumnSpan="3"
+        BackgroundColor="Transparent"
+        BorderColor="Black"
+        BorderThickness="1"
+        CornerRadius="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--<Image
+                Grid.Column="0"
+                Aspect="AspectFill"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{StaticResource FontAwesome}"
+                        Glyph="{Binding EnteryIcon}"
+                        Color="{StaticResource iconColor}" />
+                </Image.Source>
+            </Image>-->
+            <borderLessEntry:BorderlessEntry
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                BackgroundColor="Transparent"
+                ClearButtonVisibility="WhileEditing"
+                HorizontalOptions="Fill"
+                Keyboard="{Binding Keyboard}"
+                Placeholder="{Binding EnteryPlaceholder}"
+                Text="{Binding EnteryText, Mode=TwoWay}"
+                TextChanged="BorderlessEntry_TextChanged"
+                TextColor="{DynamicResource fontColor}"
+                VerticalOptions="Center" />
+        </Grid>
+    </yummy:PancakeView>
+</StackLayout>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="TaxshilaMobile.Controls.NumericUpDown"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:renderers="clr-namespace:TaxshilaMobile.Controls"
+    mc:Ignorable="d">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+                <Setter Property="FontSize" Value="25" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <pancakeview:PancakeView
+            BackgroundColor="White"
+            BorderColor="Gray"
+            BorderThickness="1"
+            CornerRadius="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    x:Name="MinusButton"
+                    Grid.Column="0"
+                    Margin="12,0,0,0"
+                    Text="-">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MinusTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <renderers:BorderlessEntry
+                    x:Name="ValueText"
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Numeric"
+                    MaxLength="3" />
+                <!--<Label x:Name="ValueText" Grid.Column="1" />-->
+                <Label
+                    x:Name="PlusButton"
+                    Grid.Column="2"
+                    Margin="0,0,12,0"
+                    Text="+">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PlusTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </pancakeview:PancakeView>
+    </ContentView.Content>
+</ContentView>

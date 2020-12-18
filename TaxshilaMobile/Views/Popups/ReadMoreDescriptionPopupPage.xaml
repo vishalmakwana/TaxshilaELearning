@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="TaxshilaMobile.Views.Popups.ReadMoreDescriptionPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <AbsoluteLayout
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All"
+        BackgroundColor="Transparent">
+        <AbsoluteLayout
+            AbsoluteLayout.LayoutBounds=".5,.5, AutoSize, AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            BackgroundColor="Transparent">
+            <Frame
+                Margin="5"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="White"
+                HeightRequest="400"
+                WidthRequest="350">
+
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid VerticalOptions="StartAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <StackLayout
+                            Grid.Row="0"
+                            HorizontalOptions="FillAndExpand"
+                            IsClippedToBounds="True"
+                            VerticalOptions="Center">
+                            <StackLayout
+                                Grid.Row="0"
+                                IsVisible="{Binding ShowMoreItem.IsSubjectVisible}"
+                                Orientation="Vertical"
+                                Spacing="0">
+                                <Grid IsVisible="{Binding ShowMoreItem.IsSubjectVisible}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30*" />
+                                        <ColumnDefinition Width="70*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        FontFamily="{StaticResource OpenSansExtraBold}"
+                                        FontSize="Small"
+                                        Text="Subject :"
+                                        TextColor="{DynamicResource primaryColor}" />
+                                    <Label
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding ShowMoreItem.Subject}" />
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" Spacing="0">
+                                <Label
+                                    FontFamily="{StaticResource OpenSansExtraBold}"
+                                    FontSize="Small"
+                                    Text="Descriptions"
+                                    TextColor="{DynamicResource primaryColor}" />
+                                <StackLayout Margin="0,10,0,0">
+                                    <Label LineBreakMode="WordWrap" Text="{Binding ShowMoreItem.Description}" />
+                                </StackLayout>
+
+                            </StackLayout>
+                        </StackLayout>
+
+
+                    </Grid>
+                    <yummy:PancakeView
+                        Grid.Row="1"
+                        Style="{DynamicResource listOptionLayoutStyle}"
+                        VerticalOptions="End">
+                        <Button
+                            BackgroundColor="{DynamicResource primaryColor}"
+                            Command="{Binding CloseCommand}"
+                            Text="Close" />
+                    </yummy:PancakeView>
+                </StackLayout>
+            </Frame>
+
+            <!--<Label
+                AbsoluteLayout.LayoutBounds="1,0"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="Transparent"
+                FontFamily="{StaticResource FontAwesome}"
+                FontSize="28"
+                HorizontalOptions="EndAndExpand"
+                Text="{x:Static fontAwesome:IconFonts.Times}"
+                TextColor="Red"
+                VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                </Label.GestureRecognizers>
+                <Label.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,-6,-5,0" />
+                        <On Platform="Android, Windows" Value="0,-2,-2,0" />
+                    </OnPlatform>
+                </Label.Margin>
+            </Label>-->
+        </AbsoluteLayout>
+    </AbsoluteLayout>
+</pages:PopupPage>

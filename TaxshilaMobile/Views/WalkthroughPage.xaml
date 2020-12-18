@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaxshilaMobile.Views.WalkthroughPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="FillAndExpand">
+            <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                    <!--<Grid VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80*" />
+                            <RowDefinition Height="20*" />
+                        </Grid.RowDefinitions>
+
+
+                    </Grid>-->
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image
+                            Aspect="AspectFill"
+                            HeightRequest="400"
+                            Source="front.png"
+                            WidthRequest="400" />
+                    </StackLayout>
+                    <!--<StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                        <Label
+                            FontFamily="{StaticResource OpenSansExtraBold}"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="TaxShila Present"
+                            VerticalOptions="Center" />
+                    -->
+                    <!--<Label
+                            FontFamily="{StaticResource OpenSansBold}"
+                            HorizontalOptions="CenterAndExpand"
+                            Style="{StaticResource SubTitleStyle}"
+                            Text="Living Free"
+                            VerticalOptions="Center" />-->
+                    <!--
+
+                    </StackLayout>-->
+                    <yummy:PancakeView
+                        BorderThickness="1"
+                        HeightRequest="50"
+                        Style="{DynamicResource listOptionLayoutStyle}"
+                        VerticalOptions="EndAndExpand">
+                        <Button
+                            Padding="0"
+                            AbsoluteLayout.LayoutBounds="1,1,1,.3"
+                            AbsoluteLayout.LayoutFlags="All"
+                            BackgroundColor="Transparent"
+                            Command="{Binding OnSkipCommandClick}"
+                            CornerRadius="0"
+                            FontFamily="{StaticResource OpenSansBold}"
+                            HeightRequest="60"
+                            Text="Continue"
+                            VerticalOptions="End" />
+                    </yummy:PancakeView>
+                </StackLayout>
+
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

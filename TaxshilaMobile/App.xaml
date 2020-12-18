@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication
+    x:Class="TaxshilaMobile.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:TaxshilaMobile.Converters"
+    xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms">
+    <prism:PrismApplication.Resources>
+        <ResourceDictionary Source="/Styles/LightTheme.xaml">
+            <Style TargetType="NavigationPage">
+                <!--<Setter Property="BarBackgroundColor" Value="{StaticResource barBackgroundColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource barTextColor}" />-->
+            </Style>
+        </ResourceDictionary>
+        <Style x:Key="ValidationErrorLabelStyle" TargetType="{x:Type Label}">
+            <Setter Property="TextColor" Value="#ff5252" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <ControlTemplate x:Key="StemmonsMasterTemplate">
+            <AbsoluteLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                <Grid AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="60" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ContentPresenter Grid.Row="0" />
+                </Grid>
+                <AbsoluteLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="0,0,0,5" />
+                        <On Platform="iOS" Value="0,0,0,15" />
+                    </OnPlatform>
+                </AbsoluteLayout.Margin>
+            </AbsoluteLayout>
+        </ControlTemplate>
+
+        <!--  ********** CONVERTERS **********  -->
+        <converters:BoolInversorConverter x:Key="BoolInversorConverter" />
+        <converters:NullOrEmptyToBoolConverter x:Key="NullOrEmptyToBoolConverter" />
+
+        <converters:UtcToLocalDateTimeConverter x:Key="UtcToLocalDateTimeConverter" />
+        <converters:ValidationErrorConverter x:Key="ValidationErrorConverter" />
+
+        <!--<converters:TopItemConverter x:Key="ItemConverter" />-->
+
+        <!--<ioc:ContainerProvider x:TypeArguments="local:HtmlLabelConverter" x:Key="HtmlLabelConverter"></ioc:ContainerProvider>
+        <ioc:ContainerProvider x:TypeArguments="converters:TopItemConverter" x:Key="ItemConverter"></ioc:ContainerProvider>-->
+
+        <!--  ********** Dynamic Controls **********  -->
+
+    </prism:PrismApplication.Resources>
+</prism:PrismApplication>

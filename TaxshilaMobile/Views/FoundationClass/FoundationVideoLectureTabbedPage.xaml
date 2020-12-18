@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="TaxshilaMobile.Views.FoundationClass.FoundationVideoLectureTabbedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:TaxshilaMobile.Views.FoundationClass"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Foundation Video Lectures"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    Visual="Material">
+    <pages:FoundationTodayLecturePage BackgroundColor="Transparent" IconImageSource="TodayLecture.png" />
+    <pages:FoundationHistoryLecturePage BackgroundColor="Transparent" IconImageSource="History.png" />
+</TabbedPage>

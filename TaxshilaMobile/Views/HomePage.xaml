@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaxshilaMobile.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:TaxshilaMobile.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="Home"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ContentView x:Name="contentView">
+            <AbsoluteLayout>
+
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                    <yummy:PancakeView
+                        Margin="0,0,0,-20"
+                        Padding="10"
+                        BackgroundColor="{DynamicResource appGardianPrimaryColor}"
+                        BackgroundGradientAngle="200"
+                        BackgroundGradientEndColor="{DynamicResource appGardianPrimaryColor}"
+                        BackgroundGradientStartColor="{DynamicResource appGardianSecondaryColor}"
+                        BorderThickness="1"
+                        CornerRadius="0,0,15,15"
+                        Elevation="3"
+                        HeightRequest="200">
+                        <StackLayout>
+                            <StackLayout HorizontalOptions="Center">
+                                <controls:InitialsView
+                                    Name="{Binding UserName, Mode=TwoWay}"
+                                    DefaultBackgroundColor="{DynamicResource appGardianPrimaryColor}"
+                                    HeightRequest="70"
+                                    IsVisible="{Binding UserName, Mode=TwoWay}"
+                                    WidthRequest="70" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+
+                                                <Span
+                                                    FontFamily="{StaticResource OpenSansBold}"
+                                                    FontSize="18"
+                                                    Text="{Binding UserName}"
+                                                    TextColor="{DynamicResource mainLabel}" />
+
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+
+
+
+                            </StackLayout>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*" />
+                                    <ColumnDefinition Width="50*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="{StaticResource OpenSansBold}"
+                                                FontSize="18"
+                                                Text="User ID: "
+                                                TextColor="{DynamicResource fontColor}" />
+                                            <Span
+                                                FontFamily="{StaticResource OpenSansBold}"
+                                                FontSize="18"
+                                                Text="{Binding UserId}"
+                                                TextColor="{DynamicResource fontColor}" />
+
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    HorizontalOptions="End">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="{StaticResource OpenSansBold}"
+                                                FontSize="18"
+                                                Text="Std : "
+                                                TextColor="{DynamicResource fontColor}" />
+                                            <Span
+                                                FontFamily="{StaticResource OpenSansBold}"
+                                                FontSize="18"
+                                                Text="{Binding Std}"
+                                                TextColor="{DynamicResource fontColor}" />
+
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+
+                        </StackLayout>
+
+                    </yummy:PancakeView>
+                    <CollectionView
+                        ItemsSource="{Binding MenuItems}"
+                        SelectedItem="{Binding SelectedMenuItem}"
+                        VerticalOptions="FillAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="2" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid
+                                    Margin="5"
+                                    ColumnSpacing="10"
+                                    RowSpacing="15">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <yummy:PancakeView
+                                        Margin="5"
+                                        Padding="5"
+                                        BackgroundColor="White"
+                                        BorderThickness="1"
+                                        CornerRadius="15"
+                                        Elevation="5"
+                                        HasShadow="True">
+                                        <StackLayout>
+
+                                            <ffimageLoading:CachedImage
+                                                Margin="0,0,0,0"
+                                                Aspect="AspectFit"
+                                                CacheType="Disk"
+                                                DownsampleToViewSize="True"
+                                                HeightRequest="40"
+                                                Source="{Binding Icon}" />
+                                            <Label
+                                                FontFamily="{StaticResource OpenSansRegular}"
+                                                FontSize="Small"
+                                                HorizontalOptions="CenterAndExpand"
+                                                HorizontalTextAlignment="Center"
+                                                Text="{Binding Title}"
+                                                VerticalOptions="CenterAndExpand" />
+                                        </StackLayout>
+                                        <yummy:PancakeView.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.CollectionViewTapCommand, Source={x:Reference contentView}}" CommandParameter="{Binding .}" />
+                                        </yummy:PancakeView.GestureRecognizers>
+                                    </yummy:PancakeView>
+
+                                </Grid>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <!--<CollectionView.Behaviors>
+                        <prism:EventToCommandBehavior Command="{Binding NavigateCommand}" EventName="SelectionChanged" />
+                    </CollectionView.Behaviors>-->
+                    </CollectionView>
+                </StackLayout>
+                <controls:ActivityProgressBar
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    IsVisible="{Binding IsBusy}" />
+            </AbsoluteLayout>
+        </ContentView>
+
+    </ContentPage.Content>
+</ContentPage>

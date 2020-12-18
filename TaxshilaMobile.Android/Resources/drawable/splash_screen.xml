@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <color android:color="@color/splash_background" />
+  </item>
+  <item>
+      
+    <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@drawable/splash"  android:gravity="fill"  android:tileMode="disabled"
+         />
+  <!--<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/image"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/splash"
+    android:scaleType="center"/>-->
+  </item>
+</layer-list>

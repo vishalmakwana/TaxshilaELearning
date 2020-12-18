@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="TaxshilaMobile.Views.Popups.UnitUpsertPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    mc:Ignorable="d">
+    <ContentView
+        Padding="5,5,5,5"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <ContentView
+            BackgroundColor="White"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label x:Name="InfoLabel" TextColor="DarkGray" />
+                <Button
+                    Command="{Binding CloseCommand}"
+                    Text="Close Popup"
+                    TextColor="Red" />
+                <Entry Placeholder="Keyboard Test Entry" PlaceholderColor="DarkGray" />
+            </StackLayout>
+        </ContentView>
+    </ContentView>
+</pages:PopupPage>

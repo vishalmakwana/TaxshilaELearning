@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="TaxshilaMobile.Views.VideoLecture.VideoLectureTabbedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:fontAwesome="clr-namespace:FontAwesome"
+    xmlns:pages="clr-namespace:TaxshilaMobile.Views.VideoLecture"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Video Lectures"
+    android:TabbedPage.IsSmoothScrollEnabled="True"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    Visual="Material">
+    <pages:TodayVideoLecturePage BackgroundColor="Transparent" IconImageSource="TodayLecture.png" />
+    <pages:VideoLectureListPage BackgroundColor="Transparent" IconImageSource="History.png" />
+</TabbedPage>
